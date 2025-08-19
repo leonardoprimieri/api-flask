@@ -21,9 +21,7 @@ def create_task():
     new_task = Task(id=task_control_id, title=data['title'], description=data.get('description', ''))
     tasks.append(new_task)
     task_control_id += 1
-    return jsonify({
-        "message": 'Task successfully created!'
-    })
+    return jsonify(new_task.to_dict())
 
 
 @app.route('/tasks', methods=['GET'])
@@ -57,7 +55,7 @@ def update_task_by_id(task_id):
         return jsonify({"message": "Task successfully updated."})
 
     return jsonify({
-        "message": "No task found."
+        "message": "No task found.",
     }), 404
 
 
