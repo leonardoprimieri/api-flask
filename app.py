@@ -55,7 +55,7 @@ def update_task_by_id(task_id):
         return jsonify({"message": "Task successfully updated."})
 
     return jsonify({
-        "message": "No task found.",
+        "message": "No task found."
     }), 404
 
 
